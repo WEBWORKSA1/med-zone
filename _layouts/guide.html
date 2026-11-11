@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% include breadcrumbs.html parent_t="Guides" parent_u="/guides/" %}
+<div class="wrap tool-grid">
+  <article class="prose guide">
+    <p class="kicker">{{ page.topic }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.description }}</p>
+    <p class="byline">Written by the Med.Zone editorial team. Updated {{ page.updated | date: "%B %-d, %Y" }}. {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read.</p>
+    {{ content }}
+    {% include ad.html slot="in_content" %}
+    {% if page.refs %}
+    <h2>Sources</h2>
+    <ol class="refs">
+      {% for r in page.refs %}<li><a href="{{ r.u }}" rel="noopener" target="_blank">{{ r.t }}</a></li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    <p class="review-note">This guide explains general health information. It is not a diagnosis or treatment plan. If something here doesn't match what your clinician told you, follow your clinician. Spotted an error? <a href="{{ '/contact/' | relative_url }}?topic=Correction">Send a correction</a>.</p>
+  </article>
+  <aside class="tool-side">
+    {% if page.tools %}
+    <div class="side-block">
+      <h2 class="side-title">Calculators for this topic</h2>
+      <ul class="link-list">
+        {% for r in page.tools %}{% assign rt = site.tools | where: "calc", r | first %}{% if rt %}<li><a href="{{ rt.url | relative_url }}">{{ rt.title }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% include lead-cta.html kind=page.cta %}
+    {% include ad.html slot="sidebar" %}
+    {% include newsletter.html compact=true %}
+  </aside>
+</div>

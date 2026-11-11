@@ -1,0 +1,24 @@
+{% assign i = include.i %}{% case i.type %}{% when 'units' %}
+<fieldset class="field seg-field"><legend>Units</legend><div class="seg"><label><input type="radio" name="units" value="metric" checked><span>Metric</span></label><label><input type="radio" name="units" value="imperial"><span>US</span></label></div></fieldset>
+{% when 'sex' %}
+<fieldset class="field seg-field"><legend>{{ i.label | default: 'Sex' }}</legend><div class="seg"><label><input type="radio" name="sex" value="female"><span>Female</span></label><label><input type="radio" name="sex" value="male"><span>Male</span></label></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</fieldset>
+{% when 'height' %}
+<div class="field" data-group="metric"><label for="f-h_cm">Height</label><div class="with-unit"><input id="f-h_cm" name="h_cm" type="number" inputmode="decimal" min="50" max="250" step="0.1" placeholder="170"{% if i.opt %} data-opt{% endif %}><span>cm</span></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+<div class="field" data-group="imperial" hidden><span class="label">Height</span><div class="pair"><div class="with-unit"><input aria-label="Height, feet" name="h_ft" type="number" inputmode="numeric" min="1" max="8" step="1" placeholder="5"{% if i.opt %} data-opt{% endif %}><span>ft</span></div><div class="with-unit"><input aria-label="Height, inches" name="h_in" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" placeholder="7" data-opt><span>in</span></div></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% when 'weight' %}
+<div class="field" data-group="metric"><label for="f-w_kg">{{ i.label | default: 'Weight' }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><div class="with-unit"><input id="f-w_kg" name="w_kg" type="number" inputmode="decimal" min="1" max="400" step="0.1" placeholder="70"{% if i.opt %} data-opt{% endif %}><span>kg</span></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+<div class="field" data-group="imperial" hidden><label for="f-w_lb">{{ i.label | default: 'Weight' }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><div class="with-unit"><input id="f-w_lb" name="w_lb" type="number" inputmode="decimal" min="2" max="880" step="0.1" placeholder="154"{% if i.opt %} data-opt{% endif %}><span>lb</span></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% when 'length' %}
+<div class="field" data-group="metric"><label for="f-{{ i.id }}_cm">{{ i.label }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><div class="with-unit"><input id="f-{{ i.id }}_cm" name="{{ i.id }}_cm" type="number" inputmode="decimal" min="10" max="250" step="0.1" placeholder="{{ i.ph_cm }}"{% if i.opt %} data-opt{% endif %}><span>cm</span></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+<div class="field" data-group="imperial" hidden><label for="f-{{ i.id }}_in">{{ i.label }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><div class="with-unit"><input id="f-{{ i.id }}_in" name="{{ i.id }}_in" type="number" inputmode="decimal" min="4" max="100" step="0.1" placeholder="{{ i.ph_in }}"{% if i.opt %} data-opt{% endif %}><span>in</span></div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% when 'select' %}
+<div class="field"><label for="f-{{ i.id }}">{{ i.label }}</label><select id="f-{{ i.id }}" name="{{ i.id }}">{% for o in i.options %}<option value="{{ o.v }}"{% if o.v == i.value %} selected{% endif %}>{{ o.t }}</option>{% endfor %}</select>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% when 'check' %}
+<div class="field check"><label><input type="checkbox" name="{{ i.id }}" value="{{ i.points | default: 1 }}"><span>{{ i.label }}</span>{% if i.points %}<b class="pts">+{{ i.points }}</b>{% endif %}</label></div>
+{% when 'date' %}
+<div class="field"><label for="f-{{ i.id }}">{{ i.label }}</label><input id="f-{{ i.id }}" name="{{ i.id }}" type="date"{% if i.opt %} data-opt{% endif %}>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% when 'time' %}
+<div class="field"><label for="f-{{ i.id }}">{{ i.label }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><input id="f-{{ i.id }}" name="{{ i.id }}" type="time"{% if i.opt %} data-opt{% endif %}>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% else %}
+<div class="field"><label for="f-{{ i.id }}">{{ i.label }}{% if i.opt %} <em>(optional)</em>{% endif %}</label><div class="with-unit"><input id="f-{{ i.id }}" name="{{ i.id }}" type="number" inputmode="decimal"{% if i.min %} min="{{ i.min }}"{% endif %}{% if i.max %} max="{{ i.max }}"{% endif %} step="{{ i.step | default: 'any' }}"{% if i.ph %} placeholder="{{ i.ph }}"{% endif %}{% if i.value %} value="{{ i.value }}"{% endif %}{% if i.opt %} data-opt{% endif %}>{% if i.unit %}<span>{{ i.unit }}</span>{% endif %}</div>{% if i.hint %}<p class="hint">{{ i.hint }}</p>{% endif %}</div>
+{% endcase %}

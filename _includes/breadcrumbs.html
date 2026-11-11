@@ -1,0 +1,9 @@
+{% unless page.url == '/' %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+    {% if include.parent_t %}<li><a href="{{ include.parent_u | relative_url }}">{{ include.parent_t }}</a></li>{% elsif page.parent_t %}<li><a href="{{ page.parent_u | relative_url }}">{{ page.parent_t }}</a></li>{% endif %}
+    <li aria-current="page">{{ page.crumb | default: page.title }}</li>
+  </ol>
+</nav>
+{% endunless %}

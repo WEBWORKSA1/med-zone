@@ -1,0 +1,30 @@
+insurance:
+  title: Paying too much for health coverage?
+  text: Tell us where you live and who needs coverage. We'll connect you with a licensed advisor who can compare plans for you.
+  cta: Compare my options
+  label: Health insurance & coverage
+travel:
+  title: Considering treatment abroad or a second opinion?
+  text: Share the procedure type, budget and timeline. We'll connect you with accredited hospitals and a care coordinator.
+  cta: Plan my treatment
+  label: Treatment abroad & second opinions
+trials:
+  title: Looking for a clinical trial?
+  text: Tell us the condition area and your region. A trial-recruitment partner can check studies you may qualify for.
+  cta: Check trials for me
+  label: Clinical trial matching
+careers:
+  title: Nurse, caregiver or allied-health pro?
+  text: Tell us your role, licence and preferred location. We'll pass your profile to hiring facilities and staffing agencies.
+  cta: Find healthcare jobs
+  label: Healthcare jobs & careers
+practice:
+  title: Run a clinic or private practice?
+  text: Reach people actively searching for your specialty, with sponsored calculators, listings and lead partnerships.
+  cta: Grow my practice
+  label: Grow a clinic or practice
+brand:
+  title: Health or wellness brand?
+  text: Sponsor a calculator, a guide or the weekly newsletter and reach readers who are already comparing options.
+  cta: See partnership options
+  label: Brand partnerships & sponsorship

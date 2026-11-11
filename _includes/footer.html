@@ -1,0 +1,72 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="{{ '/' | relative_url }}">Med<span class="logo-dot" aria-hidden="true"></span>Zone</a>
+      <p>Free calculators and live health data, explained in plain language. Built for patients, caregivers, students and clinicians.</p>
+      {% include newsletter.html %}
+    </div>
+    <nav aria-label="Calculators">
+      <h2>Popular calculators</h2>
+      <ul>
+        <li><a href="{{ '/tools/bmi-calculator/' | relative_url }}">BMI</a></li>
+        <li><a href="{{ '/tools/calorie-calculator/' | relative_url }}">Calories (TDEE)</a></li>
+        <li><a href="{{ '/tools/due-date-calculator/' | relative_url }}">Due date</a></li>
+        <li><a href="{{ '/tools/egfr-calculator/' | relative_url }}">eGFR</a></li>
+        <li><a href="{{ '/tools/a1c-calculator/' | relative_url }}">A1C to average glucose</a></li>
+        <li><a href="{{ '/tools/heart-rate-zones/' | relative_url }}">Heart rate zones</a></li>
+        <li><a href="{{ '/tools/' | relative_url }}">All calculators</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Explore">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="{{ '/drugs/' | relative_url }}">Drug labels &amp; recalls</a></li>
+        <li><a href="{{ '/conditions/' | relative_url }}">Conditions &amp; ICD-10</a></li>
+        <li><a href="{{ '/trials/' | relative_url }}">Clinical trial finder</a></li>
+        <li><a href="{{ '/research/' | relative_url }}">Latest research</a></li>
+        <li><a href="{{ '/guides/' | relative_url }}">Health guides</a></li>
+        <li><a href="{{ '/learn/' | relative_url }}">Learn &amp; quiz</a></li>
+        <li><a href="{{ '/videos/' | relative_url }}">Videos</a></li>
+        <li><a href="{{ '/news/' | relative_url }}">Health news</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Get involved">
+      <h2>Get involved</h2>
+      <ul>
+        <li><a href="{{ '/connect/' | relative_url }}">Get matched</a></li>
+        <li><a href="{{ '/support/' | relative_url }}">Support Med.Zone</a></li>
+        <li><a href="{{ '/contests/' | relative_url }}">Contests &amp; prizes</a></li>
+        <li><a href="{{ '/careers/' | relative_url }}">Work with us</a></li>
+        <li><a href="{{ '/advertise/' | relative_url }}">Advertise &amp; sponsor</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Policies">
+      <h2>Trust &amp; policies</h2>
+      <ul>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/editorial-policy/' | relative_url }}">Editorial policy</a></li>
+        <li><a href="{{ '/disclaimer/' | relative_url }}">Medical disclaimer</a></li>
+        <li><a href="{{ '/privacy/' | relative_url }}">Privacy &amp; cookies</a></li>
+        <li><a href="{{ '/terms/' | relative_url }}">Terms of use</a></li>
+        <li><a href="{{ '/legal/trademark/' | relative_url }}">Trademark &amp; copyright</a></li>
+        <li><a href="{{ '/accessibility/' | relative_url }}">Accessibility</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p><strong>Medical disclaimer:</strong> Med.Zone provides general information and educational tools. It does not give medical advice, diagnosis or treatment. In an emergency, call your local emergency number.</p>
+    <p><strong>Trademark notice:</strong> Med.Zone is an independent website and is not affiliated with, endorsed by or connected to any company, product or service using the names "MedZone", "Med Zone", "Med-Zone" or any similar mark. Third-party names and logos belong to their owners. <a href="{{ '/legal/trademark/' | relative_url }}">Full disclosure</a>.</p>
+    <p>&copy; {{ site.time | date: '%Y' }} Med.Zone. Original text, code and design are protected by copyright. Public-domain data courtesy of the U.S. FDA (openFDA), the National Library of Medicine and ClinicalTrials.gov; these agencies do not endorse this site.</p>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Cookie notice" hidden>
+  <p>We and our advertising partner Google use cookies to keep the site free, measure traffic and show ads. <a href="{{ '/privacy/' | relative_url }}">How we use cookies</a></p>
+  <div class="consent-actions"><button class="btn btn-ink btn-sm" type="button" data-consent="all">Accept</button><button class="btn btn-sm" type="button" data-consent="essential">Essential only</button></div>
+</div>
+<aside class="slidein" id="slidein" aria-label="Newsletter" hidden>
+  <button class="slidein-close" type="button" data-slidein-close aria-label="Close">&times;</button>
+  <p class="slidein-title">Get the free lab values cheat sheet</p>
+  <p>One printable page of normal adult ranges, plus a short weekly email with new calculators and health research.</p>
+  {% include newsletter.html compact=true source="slide-in" %}
+</aside>

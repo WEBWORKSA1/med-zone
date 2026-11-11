@@ -1,0 +1,80 @@
+# Med.Zone site settings. GitHub Pages builds this with Jekyll on every push to main.
+# url and baseurl are left unset on purpose: GitHub Pages fills them in for the
+# github.io address now, and switches automatically when a custom domain is added.
+
+title: Med.Zone
+tagline: Health numbers, explained.
+description: >-
+  Free medical calculators, live FDA drug labels and recalls, clinical trial and
+  PubMed research finders, lab value references and study tools for patients,
+  caregivers, students and clinicians.
+lang: en_US
+author: Med.Zone Editorial Team
+logo: /assets/img/icon.svg
+social:
+  name: Med.Zone
+
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+  guides:
+    output: true
+    permalink: /guides/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+      image: /assets/img/og.png
+  - scope:
+      path: ""
+      type: tools
+    values:
+      layout: tool
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: guide
+
+exclude:
+  - README.md
+  - docs
+  - scripts
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# ---- Monetization, contact and programs ---------------------------------
+adsense_client: ca-pub-6620975821265271
+# Optional manual ad units. Paste a slot ID from AdSense to switch a unit on.
+# Auto ads (loaded on every page) work without any slot IDs.
+adsense_slots:
+  in_content: ""
+  sidebar: ""
+
+interest_url: https://web.works/contact
+
+# Paste payment links here; each filled link becomes a button on /support/.
+donate_links:
+  paypal: ""
+  stripe: ""
+  buymeacoffee: ""
+  kofi: ""
+  github_sponsors: ""
+
+contest:
+  name: Med.Zone Monthly Knowledge Challenge
+  prize: US$100 gift card (or local-currency equivalent)
+  period: December 2026
+  closes: December 31, 2026

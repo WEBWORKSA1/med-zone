@@ -1,0 +1,7 @@
+{% assign k = include.kind | default: 'trials' %}{% assign c = site.data.leads[k] | default: site.data.leads.trials %}
+<div class="lead-cta">
+  <h2 class="side-title">{{ c.title }}</h2>
+  <p>{{ c.text }}</p>
+  <a class="btn btn-signal" href="{{ '/connect/' | relative_url }}?intent={{ k }}">{{ c.cta }}</a>
+  <p class="fine">Free, no obligation. Takes about a minute.</p>
+</div>

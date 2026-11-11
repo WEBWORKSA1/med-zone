@@ -1,0 +1,11 @@
+<form class="newsletter{% if include.compact %} compact{% endif %}" data-mz-form data-subject="Med.Zone newsletter signup" data-success="You're on the list. Your cheat sheet is ready: " data-success-link="{{ '/learn/lab-values/' | relative_url }}" data-success-link-text="open the lab values sheet">
+  <label for="nl-{{ include.source | default: 'f' }}-{{ include.compact | default: 'full' }}">Weekly email: new tools, research and contests</label>
+  <div class="nl-row">
+    <input id="nl-{{ include.source | default: 'f' }}-{{ include.compact | default: 'full' }}" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+    <button class="btn btn-ink" type="submit">Subscribe</button>
+  </div>
+  <input type="hidden" name="form" value="Newsletter ({{ include.source | default: 'inline' }})">
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <p class="fine">Free. Unsubscribe anytime. See our <a href="{{ '/privacy/' | relative_url }}">privacy policy</a>.</p>
+  <p class="form-status" role="status" hidden></p>
+</form>

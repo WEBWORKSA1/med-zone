@@ -1,0 +1,50 @@
+---
+layout: default
+scripts: [calc.js]
+---
+{% include breadcrumbs.html parent_t="Calculators" parent_u="/tools/" %}
+<div class="wrap tool-grid">
+  <section class="tool-main">
+    <p class="kicker">{{ page.category }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+    <form class="calc-form" id="calc-form" data-calc="{{ page.calc }}" novalidate>
+      <div class="calc-fields">
+        {% for input in page.inputs %}{% include calc-input.html i=input %}{% endfor %}
+      </div>
+      <p class="calc-error" role="alert" hidden></p>
+      <div class="calc-buttons">
+        <button class="btn btn-ink" type="submit">Calculate</button>
+        <button class="btn" type="reset">Clear</button>
+      </div>
+    </form>
+    <div class="calc-result" id="calc-result" aria-live="polite" hidden></div>
+    {% include ad.html slot="in_content" %}
+    <article class="prose tool-prose">
+      {{ content }}
+      {% if page.refs %}
+      <h2>Sources</h2>
+      <ol class="refs">
+        {% for r in page.refs %}<li><a href="{{ r.u }}" rel="noopener" target="_blank">{{ r.t }}</a></li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+      <p class="review-note">Formula checked against the sources above on {{ page.updated | date: "%B %-d, %Y" }}. Results are estimates for education and do not replace a clinician's judgement. Read our <a href="{{ '/editorial-policy/' | relative_url }}">editorial policy</a> or <a href="{{ '/contact/' | relative_url }}?topic=Correction">report a correction</a>.</p>
+    </article>
+  </section>
+  <aside class="tool-side">
+    {% if page.related %}
+    <div class="side-block">
+      <h2 class="side-title">Related calculators</h2>
+      <ul class="link-list">
+        {% for r in page.related %}{% assign rt = site.tools | where: "calc", r | first %}{% if rt %}<li><a href="{{ rt.url | relative_url }}">{{ rt.title }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% include lead-cta.html kind=page.cta %}
+    {% include ad.html slot="sidebar" %}
+    {% include newsletter.html compact=true %}
+  </aside>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":{{ page.title | jsonify }},"description":{{ page.summary | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"applicationCategory":"HealthApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>

@@ -1,0 +1,31 @@
+<div class="interest-bar">
+  <a href="{{ site.interest_url }}" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a>
+</div>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="Med.Zone home">Med<span class="logo-dot" aria-hidden="true"></span>Zone</a>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <ul>
+        {% for item in site.data.nav %}<li><a href="{{ item.url | relative_url }}"{% if page.url contains item.match %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+        <li class="nav-extra"><a href="{{ '/research/' | relative_url }}">Research</a></li>
+        <li class="nav-extra"><a href="{{ '/support/' | relative_url }}">Support us</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-open-search aria-label="Search the site (Ctrl+K)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch light or dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="btn btn-signal btn-sm" href="{{ '/connect/' | relative_url }}">Get matched</a>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" data-menu aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<dialog class="palette" id="palette" aria-label="Search Med.Zone">
+  <form method="dialog" class="palette-form" role="search">
+    <label class="sr-only" for="palette-q">Search calculators, guides and tools</label>
+    <input id="palette-q" type="search" placeholder="Search calculators, guides, tools" autocomplete="off">
+    <button class="btn btn-sm" value="close" type="submit" formnovalidate>Close</button>
+  </form>
+  <ul class="palette-results" id="palette-results" role="listbox"></ul>
+  <p class="palette-hint">Looking for a medicine? Try the <a href="{{ '/drugs/' | relative_url }}">drug lookup</a>. A condition or ICD-10 code? Use <a href="{{ '/conditions/' | relative_url }}">Conditions</a>.</p>
+</dialog>
