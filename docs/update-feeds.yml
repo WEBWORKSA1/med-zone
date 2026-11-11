@@ -1,0 +1,58 @@
+# TO ACTIVATE: on GitHub, open this file, click the pencil (Edit), change the file name
+# box to  .github/workflows/update-feeds.yml  and commit. That moves it into place.
+# (The connector that built this repo isn't allowed to write workflow files.)
+name: Refresh news and videos
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/update-feeds.mjs
+      - .github/workflows/update-feeds.yml
+      - _data/videos.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-feeds
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest feeds
+        run: node scripts/update-feeds.mjs
+
+      - name: Build PNG icons and social image (first run only)
+        run: |
+          if [ ! -f assets/img/og.png ] || [ ! -f assets/img/icon-192.png ] || [ ! -f assets/img/icon-512.png ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq librsvg2-bin
+            rsvg-convert -w 1200 -h 630 assets/img/og.svg -o assets/img/og.png
+            rsvg-convert -w 192 -h 192 assets/img/icon.svg -o assets/img/icon-192.png
+            rsvg-convert -w 512 -h 512 assets/img/icon.svg -o assets/img/icon-512.png
+          fi
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "med-zone-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data assets/img
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+          else
+            git commit -m "Refresh health news and latest videos"
+            git push
+          fi
