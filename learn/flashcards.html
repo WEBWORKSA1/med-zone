@@ -1,0 +1,31 @@
+---
+title: Medical Flashcards
+crumb: Flashcards
+parent_t: Learn
+parent_u: /learn/
+permalink: /learn/flashcards/
+description: Free medical flashcards for terminology roots, prefixes and suffixes, drug-name endings and classes, and adult vital signs and lab values.
+lede: Tap a card to flip it. Use the arrow keys to move through the deck, and mark the ones you already know.
+scripts: [learn.js]
+search: Tool
+---
+<div class="field" style="max-width:420px"><label for="flash-deck">Deck</label><select id="flash-deck"></select></div>
+<div class="flash-stage" id="flash">
+  <button class="flash" type="button" aria-label="Flip card"><span class="front"></span><span class="back"></span></button>
+  <div class="flash-ctrl">
+    <button class="btn" type="button" data-flash="prev">Previous</button>
+    <button class="btn btn-ink" type="button" data-flash="next">Next</button>
+    <button class="btn" type="button" data-flash="known">I knew it</button>
+    <button class="btn" type="button" data-flash="shuffle">Shuffle</button>
+  </div>
+  <p class="fine" id="flash-count" aria-live="polite"></p>
+</div>
+<script type="application/json" id="flash-data">{{ site.data.flashcards | jsonify }}</script>
+
+{% include ad.html slot="in_content" %}
+
+<section class="prose" style="margin-top:40px">
+  <h2>How to study with flashcards</h2>
+  <p>Flashcards work because they make you <strong>retrieve</strong> information rather than reread it, which strengthens memory more than passive review. Space your sessions out: a few minutes a day beats an hour the night before an exam. Say the answer out loud before you flip, and keep the cards you miss in the next session.</p>
+  <p>Medical words are built from parts. Once you know that <em>nephr/o</em> is kidney and <em>-ectomy</em> means removal, "nephrectomy" needs no memorizing.</p>
+</section>

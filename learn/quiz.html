@@ -1,0 +1,32 @@
+---
+title: Health Knowledge Quiz
+crumb: Quiz
+parent_t: Learn
+parent_u: /learn/
+permalink: /learn/quiz/
+description: Test your health and medical knowledge with 10 random questions per round, each with a clear explanation. Free, no sign-up.
+lede: Ten random questions per round, drawn from a bank covering anatomy, first aid, labs, medicines and everyday health. Each answer comes with an explanation.
+scripts: [learn.js]
+search: Tool
+featured: true
+---
+<div class="quiz" id="quiz" data-size="10" aria-live="polite"><p class="loading">Loading the quiz...</p></div>
+<script type="application/json" id="quiz-data">{{ site.data.quiz | jsonify }}</script>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose">
+    <h2>Turn your score into a prize</h2>
+    <p>Every month, players who submit a score enter the {{ site.contest.name }}. The prize this period is a {{ site.contest.prize }}. Finish a round, then choose "Enter this month's contest".</p>
+    <p><a href="{{ '/contests/rules/' | relative_url }}">Official rules</a>. No purchase necessary.</p>
+  </section>
+  <section class="prose">
+    <h2>Keep studying</h2>
+    <ul>
+      <li><a href="{{ '/learn/flashcards/' | relative_url }}">Flashcards for terminology and drug classes</a></li>
+      <li><a href="{{ '/learn/lab-values/' | relative_url }}">Normal lab values</a></li>
+      <li><a href="{{ '/learn/abbreviations/' | relative_url }}">Medical abbreviations</a></li>
+    </ul>
+  </section>
+</div>

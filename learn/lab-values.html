@@ -1,0 +1,39 @@
+---
+title: Normal Lab Values Reference (US and SI Units)
+crumb: Lab values
+parent_t: Learn
+parent_u: /learn/
+permalink: /learn/lab-values/
+description: Typical adult reference ranges for 45 common blood and urine tests in conventional and SI units, with what high or low results often mean. Printable.
+lede: Typical adult reference ranges for common blood and urine tests, in US and SI units. Your laboratory's own range, printed on your report, always takes priority.
+scripts: [learn.js]
+search: Tool
+featured: true
+---
+<div class="searchbar">
+  <label class="sr-only" for="lab-filter">Filter tests</label>
+  <input id="lab-filter" type="search" placeholder="Filter, for example potassium or liver" data-filter-table="#lab-table" data-filter-count="#lab-count">
+  <button class="btn" type="button" onclick="window.print()">Print this sheet</button>
+</div>
+<p class="fine" id="lab-count">{{ site.data.labs.size }} tests</p>
+<div class="table-scroll">
+  <table class="data-table" id="lab-table">
+    <thead><tr><th>Test</th><th>Conventional (US)</th><th>SI units</th><th>Notes</th><th>Panel</th></tr></thead>
+    <tbody>
+      {% for l in site.data.labs %}<tr><td><strong>{{ l.test }}</strong></td><td>{{ l.conv }}</td><td>{{ l.si }}</td><td>{{ l.note }}</td><td>{{ l.panel }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose">
+    <h2>Reading your results</h2>
+    <p>Reference ranges are usually set so that 95 percent of healthy people fall inside them. That means about 1 in 20 healthy people will have a result just outside the range on any single test, so a slightly high or low value is often not a problem.</p>
+    <p>What matters most is the size of the change, the trend over time and how the result fits with your symptoms and other tests. Read our full guide on <a href="{{ '/guides/how-to-read-blood-test-results/' | relative_url }}">how to read blood test results</a>.</p>
+    <p>Related calculators: <a href="{{ '/tools/egfr-calculator/' | relative_url }}">eGFR</a>, <a href="{{ '/tools/corrected-calcium-calculator/' | relative_url }}">corrected calcium</a>, <a href="{{ '/tools/anion-gap-calculator/' | relative_url }}">anion gap</a>, <a href="{{ '/tools/a1c-calculator/' | relative_url }}">A1C</a>.</p>
+  </section>
+  <div>{% include newsletter.html source="labs" %}</div>
+</div>

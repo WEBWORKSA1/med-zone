@@ -1,0 +1,40 @@
+---
+title: Learn Medicine and Health
+crumb: Learn
+description: Free medical study tools: a health quiz with explanations, terminology and drug-class flashcards, normal lab values, medical abbreviations and a doctor-visit question builder.
+lede: Free study tools for students, caregivers and anyone who wants to understand their health better. No account needed.
+search: Page
+---
+<div class="dir" style="grid-template-columns:repeat(2,1fr)">
+  <div>
+    <h3>Practice</h3>
+    <ul>
+      <li><a href="{{ '/learn/quiz/' | relative_url }}"><b>Health knowledge quiz</b><span>10 random questions per round from a bank of {{ site.data.quiz.size }}, each with an explanation.</span></a></li>
+      <li><a href="{{ '/learn/flashcards/' | relative_url }}"><b>Flashcards</b><span>Terminology roots, drug-name endings, vital signs and key lab values.</span></a></li>
+      <li><a href="{{ '/contests/' | relative_url }}"><b>Monthly knowledge challenge</b><span>Use your quiz score to enter this month's prize draw.</span></a></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Reference</h3>
+    <ul>
+      <li><a href="{{ '/learn/lab-values/' | relative_url }}"><b>Normal lab values</b><span>{{ site.data.labs.size }} common tests in US and SI units. Printable.</span></a></li>
+      <li><a href="{{ '/learn/abbreviations/' | relative_url }}"><b>Medical abbreviations</b><span>{{ site.data.abbreviations.size }} abbreviations, with the "do not use" list flagged.</span></a></li>
+      <li><a href="{{ '/learn/visit-prep/' | relative_url }}"><b>Doctor visit question builder</b><span>Build a one-page list of symptoms, medicines and questions to bring.</span></a></li>
+    </ul>
+  </div>
+</div>
+
+{% include ad.html slot="in_content" %}
+
+<section class="section" style="border:0">
+  <h2>Learn by watching</h2>
+  <p>Short explainers from Khan Academy, Osmosis, the American Heart Association and nurse educators are collected in our <a href="{{ '/videos/' | relative_url }}">video library</a>.</p>
+  <div class="cols cols-2">
+    <div>
+      <h2>Healthcare student or new grad?</h2>
+      <p>Tell us your role and where you want to work. We'll connect you with hiring facilities and staffing agencies.</p>
+      <a class="btn btn-signal" href="{{ '/connect/' | relative_url }}?intent=careers">Find healthcare jobs</a>
+    </div>
+    <div>{% include newsletter.html source="learn" %}</div>
+  </div>
+</section>

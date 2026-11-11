@@ -1,0 +1,46 @@
+# Typical adult reference ranges. Ranges vary between laboratories; the lab's own range on the report takes priority.
+- {panel: "Electrolytes and kidney", test: "Sodium (Na)", conv: "135 to 145 mEq/L", si: "135 to 145 mmol/L", note: "Low: hyponatremia; high: hypernatremia"}
+- {panel: "Electrolytes and kidney", test: "Potassium (K)", conv: "3.5 to 5.0 mEq/L", si: "3.5 to 5.0 mmol/L", note: "Both highs and lows affect heart rhythm"}
+- {panel: "Electrolytes and kidney", test: "Chloride (Cl)", conv: "98 to 106 mEq/L", si: "98 to 106 mmol/L", note: ""}
+- {panel: "Electrolytes and kidney", test: "Bicarbonate (CO2, HCO3)", conv: "22 to 29 mEq/L", si: "22 to 29 mmol/L", note: "Low in metabolic acidosis"}
+- {panel: "Electrolytes and kidney", test: "Blood urea nitrogen (BUN)", conv: "7 to 20 mg/dL", si: "2.5 to 7.1 mmol/L (urea)", note: "Rises with dehydration and kidney disease"}
+- {panel: "Electrolytes and kidney", test: "Creatinine", conv: "Women 0.59 to 1.04; men 0.74 to 1.35 mg/dL", si: "Women 52 to 92; men 65 to 119 µmol/L", note: "Used to calculate eGFR"}
+- {panel: "Electrolytes and kidney", test: "eGFR", conv: "90 or more mL/min/1.73 m²", si: "Same", note: "Below 60 for 3+ months suggests chronic kidney disease"}
+- {panel: "Electrolytes and kidney", test: "Calcium, total", conv: "8.5 to 10.5 mg/dL", si: "2.12 to 2.62 mmol/L", note: "Correct for low albumin"}
+- {panel: "Electrolytes and kidney", test: "Magnesium", conv: "1.7 to 2.2 mg/dL", si: "0.70 to 0.91 mmol/L", note: ""}
+- {panel: "Electrolytes and kidney", test: "Phosphate", conv: "2.5 to 4.5 mg/dL", si: "0.81 to 1.45 mmol/L", note: ""}
+- {panel: "Electrolytes and kidney", test: "Uric acid", conv: "Women 2.4 to 6.0; men 3.4 to 7.0 mg/dL", si: "Women 143 to 357; men 202 to 416 µmol/L", note: "High levels can cause gout"}
+- {panel: "Glucose and diabetes", test: "Fasting glucose", conv: "70 to 99 mg/dL", si: "3.9 to 5.5 mmol/L", note: "100 to 125 is prediabetes range"}
+- {panel: "Glucose and diabetes", test: "Hemoglobin A1C", conv: "Below 5.7%", si: "Below 39 mmol/mol", note: "6.5% or more is the diabetes range"}
+- {panel: "Liver", test: "ALT", conv: "About 7 to 55 U/L", si: "Same", note: "Liver cell injury marker"}
+- {panel: "Liver", test: "AST", conv: "About 8 to 48 U/L", si: "Same", note: "Also found in muscle and heart"}
+- {panel: "Liver", test: "Alkaline phosphatase (ALP)", conv: "About 40 to 129 U/L", si: "Same", note: "Higher in growing children and pregnancy"}
+- {panel: "Liver", test: "Bilirubin, total", conv: "0.1 to 1.2 mg/dL", si: "2 to 21 µmol/L", note: "High levels cause jaundice"}
+- {panel: "Liver", test: "Albumin", conv: "3.5 to 5.0 g/dL", si: "35 to 50 g/L", note: "Low in liver disease, malnutrition, inflammation"}
+- {panel: "Liver", test: "Total protein", conv: "6.0 to 8.3 g/dL", si: "60 to 83 g/L", note: ""}
+- {panel: "Blood count", test: "Hemoglobin", conv: "Women 12.0 to 15.5; men 13.5 to 17.5 g/dL", si: "Women 120 to 155; men 135 to 175 g/L", note: "Low: anemia"}
+- {panel: "Blood count", test: "Hematocrit", conv: "Women 35 to 45%; men 38 to 50%", si: "0.35 to 0.45; 0.38 to 0.50", note: ""}
+- {panel: "Blood count", test: "White blood cells (WBC)", conv: "About 4.5 to 11.0 × 10³/µL", si: "4.5 to 11.0 × 10⁹/L", note: "High with infection or inflammation"}
+- {panel: "Blood count", test: "Platelets", conv: "150 to 450 × 10³/µL", si: "150 to 450 × 10⁹/L", note: "Low counts raise bleeding risk"}
+- {panel: "Blood count", test: "Mean corpuscular volume (MCV)", conv: "80 to 100 fL", si: "Same", note: "Small cells: iron deficiency; large cells: B12 or folate deficiency"}
+- {panel: "Clotting", test: "INR (no anticoagulant)", conv: "About 0.8 to 1.1", si: "Same", note: "Warfarin target is usually 2.0 to 3.0"}
+- {panel: "Clotting", test: "Prothrombin time (PT)", conv: "About 11 to 13.5 seconds", si: "Same", note: ""}
+- {panel: "Clotting", test: "aPTT", conv: "About 25 to 35 seconds", si: "Same", note: "Used to monitor unfractionated heparin"}
+- {panel: "Lipids", test: "Total cholesterol", conv: "Below 200 mg/dL", si: "Below 5.2 mmol/L", note: "Desirable level"}
+- {panel: "Lipids", test: "LDL cholesterol", conv: "Below 100 mg/dL", si: "Below 2.6 mmol/L", note: "Lower targets for people at high risk"}
+- {panel: "Lipids", test: "HDL cholesterol", conv: "Women 50 or more; men 40 or more mg/dL", si: "1.3 or more; 1.0 or more mmol/L", note: "Higher is generally better"}
+- {panel: "Lipids", test: "Triglycerides", conv: "Below 150 mg/dL", si: "Below 1.7 mmol/L", note: "Fasting sample"}
+- {panel: "Thyroid", test: "TSH", conv: "About 0.4 to 4.0 mIU/L", si: "Same", note: "High TSH usually means an underactive thyroid"}
+- {panel: "Thyroid", test: "Free T4", conv: "About 0.8 to 1.8 ng/dL", si: "About 10 to 23 pmol/L", note: ""}
+- {panel: "Inflammation and iron", test: "C-reactive protein (CRP)", conv: "Below 10 mg/L", si: "Same", note: "hs-CRP above 3 mg/L suggests higher cardiovascular risk"}
+- {panel: "Inflammation and iron", test: "Ferritin", conv: "Women about 11 to 307; men about 24 to 336 ng/mL", si: "Same in µg/L", note: "Low ferritin is the most specific sign of iron deficiency"}
+- {panel: "Inflammation and iron", test: "Vitamin B12", conv: "About 200 to 900 pg/mL", si: "About 148 to 664 pmol/L", note: ""}
+- {panel: "Inflammation and iron", test: "25-hydroxy vitamin D", conv: "20 ng/mL or more is adequate for most people", si: "50 nmol/L or more", note: "Above 50 ng/mL (125 nmol/L) may be too high"}
+- {panel: "Blood gas (arterial)", test: "pH", conv: "7.35 to 7.45", si: "Same", note: ""}
+- {panel: "Blood gas (arterial)", test: "PaCO2", conv: "35 to 45 mmHg", si: "4.7 to 6.0 kPa", note: ""}
+- {panel: "Blood gas (arterial)", test: "PaO2", conv: "75 to 100 mmHg", si: "10 to 13.3 kPa", note: "Lower with age"}
+- {panel: "Blood gas (arterial)", test: "Lactate", conv: "0.5 to 2.2 mmol/L", si: "Same", note: "High in shock and sepsis"}
+- {panel: "Heart", test: "BNP", conv: "Below 100 pg/mL", si: "Same in ng/L", note: "Raised in heart failure; age and kidney function matter"}
+- {panel: "Heart", test: "Troponin (high sensitivity)", conv: "Laboratory-specific 99th percentile", si: "Same", note: "Interpreted with serial measurements"}
+- {panel: "Urine", test: "Specific gravity", conv: "1.005 to 1.030", si: "Same", note: "Higher when dehydrated"}
+- {panel: "Urine", test: "Albumin-to-creatinine ratio (ACR)", conv: "Below 30 mg/g", si: "Below 3 mg/mmol", note: "Early sign of kidney damage in diabetes and hypertension"}

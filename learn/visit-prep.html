@@ -1,0 +1,44 @@
+---
+title: Doctor Visit Question Builder
+crumb: Visit prep
+parent_t: Learn
+parent_u: /learn/
+permalink: /learn/visit-prep/
+description: Build a printable one-page list of your symptoms, medicines, allergies and questions before a doctor's appointment. Nothing you type leaves your device.
+lede: Fill in what applies, tick the questions you want to ask, then print or copy your notes. Nothing you type is sent anywhere.
+scripts: [learn.js]
+search: Tool
+featured: true
+---
+<div class="lead-wrap">
+  <form id="prep" class="panel panel-ink" onsubmit="return false">
+    <div class="field"><label for="p-reason">Main reason for the visit</label><textarea id="p-reason" name="reason" placeholder="For example: headaches most mornings for 3 weeks"></textarea></div>
+    <div class="field"><label for="p-since">When it started, and what makes it better or worse</label><textarea id="p-since" name="since"></textarea></div>
+    <div class="field"><label for="p-meds">Medicines, vitamins and supplements (with doses)</label><textarea id="p-meds" name="meds"></textarea></div>
+    <div class="field"><label for="p-all">Allergies</label><input id="p-all" name="allergies" type="text" placeholder="Medicine, food or latex allergies"></div>
+    <fieldset class="field"><legend>Questions to ask</legend>
+      <ul class="checklist">
+        <li><label><input type="checkbox" name="q" value="What do you think is causing this?"> What do you think is causing this?</label></li>
+        <li><label><input type="checkbox" name="q" value="What tests do I need, and what will they show?"> What tests do I need, and what will they show?</label></li>
+        <li><label><input type="checkbox" name="q" value="What are my treatment options, including doing nothing?"> What are my treatment options, including doing nothing?</label></li>
+        <li><label><input type="checkbox" name="q" value="What are the side effects and costs of this treatment?"> What are the side effects and costs of this treatment?</label></li>
+        <li><label><input type="checkbox" name="q" value="Does this medicine interact with anything I already take?"> Does this medicine interact with anything I already take?</label></li>
+        <li><label><input type="checkbox" name="q" value="Which warning signs mean I should come back or go to the emergency department?"> Which warning signs mean I should come back or go to the emergency department?</label></li>
+        <li><label><input type="checkbox" name="q" value="When and how will I get my results?"> When and how will I get my results?</label></li>
+        <li><label><input type="checkbox" name="q" value="Should I see a specialist?"> Should I see a specialist?</label></li>
+      </ul>
+    </fieldset>
+    <div class="field"><label for="p-own">Your own questions (one per line)</label><textarea id="p-own" name="own"></textarea></div>
+  </form>
+  <div>
+    <div class="strip ecg" style="background-color:var(--paper)"><div id="prep-output" style="position:relative"></div></div>
+    <div class="r-actions"><button class="btn btn-ink" type="button" data-prep-print>Print my notes</button><button class="btn" type="button" data-prep-copy>Copy</button></div>
+  </div>
+</div>
+
+{% include ad.html slot="in_content" %}
+
+<section class="prose" style="margin-top:40px">
+  <h2>Get more from a short appointment</h2>
+  <p>Many primary-care visits last 15 to 20 minutes. Lead with your most important concern, bring every medicine bottle or a photo of the labels, and repeat the plan back in your own words before you leave. If you're seeing a new doctor, request your records in advance. Read the full guide: <a href="{{ '/guides/prepare-for-a-doctor-appointment/' | relative_url }}">how to prepare for a doctor's appointment</a>.</p>
+</section>

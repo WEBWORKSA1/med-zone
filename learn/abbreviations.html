@@ -1,0 +1,33 @@
+---
+title: Medical Abbreviations List
+crumb: Abbreviations
+parent_t: Learn
+parent_u: /learn/
+permalink: /learn/abbreviations/
+description: A searchable list of common medical abbreviations with meanings, and the error-prone abbreviations hospitals ban from medication orders.
+lede: Search common abbreviations seen on charts, prescriptions and discharge papers. Abbreviations marked "Do not use" cause medication errors and are banned in many hospitals.
+scripts: [learn.js]
+search: Tool
+---
+<div class="searchbar">
+  <label class="sr-only" for="abbr-filter">Filter abbreviations</label>
+  <input id="abbr-filter" type="search" placeholder="Filter, for example PRN or kidney" data-filter-table="#abbr-table" data-filter-count="#abbr-count">
+</div>
+<p class="fine" id="abbr-count">{{ site.data.abbreviations.size }} abbreviations</p>
+<div class="table-scroll">
+  <table class="data-table" id="abbr-table">
+    <thead><tr><th>Abbreviation</th><th>Meaning</th><th>Status</th></tr></thead>
+    <tbody>
+      {% for a in site.data.abbreviations %}<tr><td><strong>{{ a[0] }}</strong></td><td>{{ a[1] }}</td><td>{% if a[2] %}<span class="dnu">Do not use</span>{% endif %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% include ad.html slot="in_content" %}
+
+<section class="prose" style="margin-top:40px">
+  <h2>Why some abbreviations are banned</h2>
+  <p>Handwritten or rushed abbreviations have caused serious harm. "U" for units has been misread as a zero, turning 10 units of insulin into 100. "QD" (daily) and "QOD" (every other day) have been confused with each other. A trailing zero ("1.0 mg") can be read as 10 mg when the decimal point is missed.</p>
+  <p>The Joint Commission's official "Do Not Use" list and the Institute for Safe Medication Practices' list of error-prone abbreviations ask clinicians to write these terms out in full. If you see one on your prescription, it is reasonable to ask the pharmacist to confirm what it means.</p>
+</section>
