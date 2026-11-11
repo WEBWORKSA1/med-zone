@@ -1,0 +1,47 @@
+---
+title: Drug Lookup, FDA Labels and Recalls
+crumb: Drugs
+description: Search official FDA drug labels for uses, dosing, warnings, side effects and interactions, and see the latest FDA drug, food and device recalls.
+lede: Search any prescription or over-the-counter medicine to read its official FDA label, or check the latest recalls. Data comes live from openFDA.
+scripts: [live.js]
+search: Tool
+featured: true
+---
+<form class="searchbar" id="drug-form" role="search">
+  <label class="sr-only" for="drug-q">Medicine name</label>
+  <input id="drug-q" name="q" type="search" placeholder="Brand or generic name, for example atorvastatin" required>
+  <button class="btn btn-ink" type="submit">Search labels</button>
+</form>
+<ul class="chips" aria-label="Common searches">
+  {% assign common = "metformin,atorvastatin,lisinopril,amoxicillin,ibuprofen,semaglutide,sertraline,levothyroxine" | split: "," %}{% for c in common %}<li><button class="btn btn-sm" type="button" data-fill="{{ c }}" data-target="#drug-form">{{ c }}</button></li>{% endfor %}
+</ul>
+<div class="results" id="drug-results" aria-live="polite"></div>
+
+<section id="recalls-section" class="section" style="border:0;padding-bottom:24px">
+  <div class="section-head"><div><h2>Latest FDA recalls</h2><p>Enforcement reports, newest first. Class I is the most serious: a reasonable chance of serious harm.</p></div>
+    <label class="field" style="margin:0"><span class="label">Show</span><select data-recall-kind><option value="drug">Drug recalls</option><option value="food">Food recalls</option><option value="device">Medical device recalls</option></select></label>
+  </div>
+  <div id="recalls" data-live="recalls" data-kind="drug" data-limit="12"></div>
+</section>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2">
+  <section class="prose">
+    <h2>How to read a drug label</h2>
+    <p>U.S. prescription labels (the "package insert") follow a fixed structure. The sections most people need are:</p>
+    <ul>
+      <li><strong>Boxed warning:</strong> the FDA's strongest warning, shown first when a drug carries a serious or life-threatening risk.</li>
+      <li><strong>Indications and usage:</strong> what the drug is approved to treat.</li>
+      <li><strong>Dosage and administration:</strong> usual doses and adjustments, for example for kidney function. Your prescription may differ for good reasons.</li>
+      <li><strong>Contraindications:</strong> situations where the drug should not be used.</li>
+      <li><strong>Adverse reactions:</strong> side effects seen in studies, usually with how often they occurred.</li>
+      <li><strong>Drug interactions:</strong> medicines, supplements or foods that change how the drug works.</li>
+    </ul>
+    <p>Over-the-counter products use a simpler "Drug Facts" panel: active ingredient, purpose, uses, warnings and directions.</p>
+    <p>Labels describe the product, not your situation. Before starting, stopping or changing a medicine, talk to your prescriber or pharmacist. Read our guide to <a href="{{ '/guides/medication-safety-at-home/' | relative_url }}">medication safety at home</a>.</p>
+  </section>
+  <div>{% include lead-cta.html kind="insurance" %}
+    <p class="fine" style="margin-top:16px">Source: openFDA, U.S. Food and Drug Administration. openFDA data is not intended for clinical decisions and may not reflect the latest approved labeling. Med.Zone is not affiliated with the FDA.</p>
+  </div>
+</div>

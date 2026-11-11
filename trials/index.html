@@ -1,0 +1,56 @@
+---
+title: Clinical Trial Finder
+crumb: Trials
+description: Search recruiting clinical trials by condition and location using live data from ClinicalTrials.gov, and learn how trials work before you join.
+lede: Find studies that are recruiting now, by condition and location. Results come live from ClinicalTrials.gov, the largest public registry of clinical research.
+scripts: [live.js]
+search: Tool
+featured: true
+body_class: no-slidein
+---
+<form class="searchbar" id="trial-form" role="search">
+  <label class="sr-only" for="t-cond">Condition</label>
+  <input id="t-cond" name="cond" type="search" placeholder="Condition, for example breast cancer" required>
+  <label class="sr-only" for="t-locn">Location</label>
+  <input id="t-locn" name="locn" type="search" placeholder="City, state or country (optional)">
+  <label class="sr-only" for="t-status">Status</label>
+  <select id="t-status" name="status">
+    <option value="RECRUITING">Recruiting now</option>
+    <option value="NOT_YET_RECRUITING">Opening soon</option>
+    <option value="">Any status</option>
+  </select>
+  <button class="btn btn-ink" type="submit">Find trials</button>
+</form>
+<ul class="chips" aria-label="Common searches">
+  {% assign common = "type 2 diabetes,obesity,Alzheimer disease,breast cancer,long COVID,depression,heart failure,psoriasis" | split: "," %}{% for c in common %}<li><button class="btn btn-sm" type="button" data-fill="{{ c }}" data-target="#trial-form">{{ c }}</button></li>{% endfor %}
+</ul>
+<div class="results" id="trial-results" aria-live="polite"></div>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose">
+    <h2>How clinical trials work</h2>
+    <table>
+      <thead><tr><th>Phase</th><th>Main question</th><th>Typical size</th></tr></thead>
+      <tbody>
+        <tr><td>Phase 1</td><td>Is it safe, and what dose?</td><td>20 to 100 people</td></tr>
+        <tr><td>Phase 2</td><td>Does it work, and what are the side effects?</td><td>Up to several hundred</td></tr>
+        <tr><td>Phase 3</td><td>Is it better than current treatment?</td><td>Hundreds to thousands</td></tr>
+        <tr><td>Phase 4</td><td>What happens after approval, long term?</td><td>Thousands</td></tr>
+      </tbody>
+    </table>
+    <h3>Before you join, ask</h3>
+    <ul>
+      <li>What is being tested, and what are the alternatives?</li>
+      <li>Could I receive a placebo? Can I keep my current treatment?</li>
+      <li>How many visits, tests and how much time are involved?</li>
+      <li>Are travel, parking or time costs covered? Who pays if I'm harmed?</li>
+      <li>Can I leave at any time? (You always can.)</li>
+    </ul>
+    <p>Read the full guide: <a href="{{ '/guides/how-to-join-a-clinical-trial/' | relative_url }}">how to find and join a clinical trial</a>.</p>
+  </section>
+  <div>{% include lead-cta.html kind="trials" %}
+    <p class="fine" style="margin-top:16px">Listings come from ClinicalTrials.gov, run by the U.S. National Library of Medicine. A listing does not mean a study has been evaluated by the government or by Med.Zone. Discuss any trial with your doctor.</p>
+  </div>
+</div>

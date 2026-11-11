@@ -1,0 +1,43 @@
+---
+title: Conditions A to Z and ICD-10 Code Lookup
+crumb: Conditions
+description: Look up medical conditions with plain-language names, MedlinePlus links and ICD-10-CM codes, powered by the U.S. National Library of Medicine.
+lede: Search a condition to see its everyday name, ICD-10-CM codes and trusted reading from MedlinePlus, then jump to trials and research on the same topic.
+scripts: [live.js]
+search: Tool
+featured: true
+---
+<form class="searchbar" id="cond-form" role="search">
+  <label class="sr-only" for="cond-q">Condition</label>
+  <input id="cond-q" name="q" type="search" placeholder="For example asthma, migraine or kidney stones" required>
+  <button class="btn btn-ink" type="submit">Search conditions</button>
+</form>
+<ul class="chips" aria-label="Common searches">
+  {% assign common = "high blood pressure,type 2 diabetes,asthma,migraine,depression,osteoarthritis,COPD,anemia" | split: "," %}{% for c in common %}<li><button class="btn btn-sm" type="button" data-fill="{{ c }}" data-target="#cond-form">{{ c }}</button></li>{% endfor %}
+</ul>
+<div class="results" id="cond-results" aria-live="polite"></div>
+
+<section class="section" style="border:0">
+  <h2>ICD-10-CM code lookup</h2>
+  <p>Search by code (for example E11) or by words (for example "low back pain").</p>
+  <form class="searchbar" id="icd-form" role="search">
+    <label class="sr-only" for="icd-q">ICD-10 code or term</label>
+    <input id="icd-q" name="q" type="search" placeholder="Code or description" required>
+    <button class="btn btn-ink" type="submit">Find codes</button>
+  </form>
+  <div id="icd-results" aria-live="polite"></div>
+</section>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2">
+  <section class="prose">
+    <h2>About ICD-10 codes</h2>
+    <p>The International Classification of Diseases (ICD) is the World Health Organization's system for recording diagnoses. Clinicians, insurers and researchers use the codes to describe the same condition in the same way.</p>
+    <p>A code starts with a letter that marks the chapter (E for endocrine conditions, I for circulatory, J for respiratory) followed by numbers that add detail. E11.9, for example, is type 2 diabetes without complications.</p>
+    <p>The United States uses ICD-10-CM for diagnoses; Canada uses ICD-10-CA; many countries are moving to ICD-11. If a code on a bill or form looks wrong, ask your provider's billing office to review it.</p>
+  </section>
+  <div>{% include lead-cta.html kind="trials" %}
+    <p class="fine" style="margin-top:16px">Data: Clinical Table Search Service, U.S. National Library of Medicine. Health topic links point to MedlinePlus. Neither organization endorses Med.Zone.</p>
+  </div>
+</div>

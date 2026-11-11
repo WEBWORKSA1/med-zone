@@ -1,0 +1,27 @@
+---
+title: Health and Medical News
+crumb: News
+description: The latest health and medical research news from NIH, ScienceDaily, the FDA and other trusted sources, refreshed automatically every day.
+lede: Headlines from trusted health and research newsrooms, gathered automatically every day. Every story links to its original source.
+scripts: [live.js]
+search: Page
+---
+<p class="fine">Last refreshed: <span data-news-updated>today</span>.</p>
+<div class="searchbar">
+  <label class="sr-only" for="news-q">Filter headlines</label>
+  <input id="news-q" type="search" placeholder="Filter headlines, for example cancer" data-news-q>
+  <label class="sr-only" for="news-src">Source</label>
+  <select id="news-src" data-news-filter><option value="">All sources</option></select>
+</div>
+<div data-live="news" data-limit="80"><p class="loading">Loading the latest headlines...</p></div>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose">
+    <h2>About this feed</h2>
+    <p>Med.Zone collects headlines from public RSS feeds published by research institutions and science newsrooms, including the U.S. National Institutes of Health, the FDA and ScienceDaily. We show the headline, date and a short summary and send you to the original publisher for the full story.</p>
+    <p>News about a single study is rarely the final word. Before changing anything about your health, check the study type and size, and talk to your clinician. See <a href="{{ '/research/' | relative_url }}">the research finder</a> to read the studies themselves.</p>
+  </section>
+  <div>{% include newsletter.html source="news" %}</div>
+</div>

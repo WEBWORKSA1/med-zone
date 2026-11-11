@@ -1,0 +1,8 @@
+---
+layout: null
+sitemap: false
+---
+[{% for t in site.tools %}{"t":{{ t.title | jsonify }},"d":{{ t.description | truncate: 110 | jsonify }},"k":"Calculator","a":{{ t.category | jsonify }},"u":{{ t.url | relative_url | jsonify }}{% if t.featured %},"f":1{% endif %}},
+{% endfor %}{% for g in site.guides %}{"t":{{ g.title | jsonify }},"d":{{ g.description | truncate: 110 | jsonify }},"k":"Guide","a":{{ g.topic | jsonify }},"u":{{ g.url | relative_url | jsonify }}},
+{% endfor %}{% for p in site.pages %}{% if p.search %}{"t":{{ p.title | jsonify }},"d":{{ p.description | truncate: 110 | jsonify }},"k":{{ p.search | jsonify }},"u":{{ p.url | relative_url | jsonify }}{% if p.featured %},"f":1{% endif %}},
+{% endif %}{% endfor %}{"t":"Contact Med.Zone","d":"Questions, corrections, sponsorship and partnerships","k":"Page","u":{{ '/contact/' | relative_url | jsonify }}}]

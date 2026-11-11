@@ -1,0 +1,12 @@
+- name: Body & weight
+  blurb: BMI, calories, body fat and healthy-weight targets.
+- name: Heart & circulation
+  blurb: Training zones, blood pressure, QTc and stroke risk.
+- name: Kidney, labs & diabetes
+  blurb: eGFR, A1C, glucose and common lab corrections.
+- name: Pregnancy & fertility
+  blurb: Due dates, fertile windows and weight gain.
+- name: Everyday health
+  blurb: Water, sleep and smoking history.
+- name: Nursing & clinical
+  blurb: GCS, IV drip rates, weight-based doses and BSA.

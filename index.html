@@ -1,0 +1,137 @@
+---
+title: Free Medical Calculators, Drug Facts and Live Health Data
+description: 26 free medical calculators, live FDA drug labels and recalls, a clinical trial finder, PubMed research and plain-language health guides. No sign-up needed.
+body_class: home
+scripts: [calc.js, live.js]
+---
+<section class="hero ecg">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Health numbers, explained.</h1>
+      <p class="lede">Free medical calculators, live FDA drug labels and recalls, clinical trials and new research. Plain language, with every source shown.</p>
+      <form class="omni" data-omni role="search">
+        <label class="sr-only" for="omni-q">Search Med.Zone</label>
+        <input id="omni-q" type="search" placeholder="Try BMI, due date, eGFR or A1C">
+        <button class="btn btn-ink" type="submit">Search</button>
+      </form>
+      <ul class="chips" aria-label="Popular calculators">
+        {% assign feat = site.tools | where: "featured", true | sort: "order" %}{% for t in feat %}<li><a href="{{ t.url | relative_url }}">{{ t.title | split: ' Calculator' | first }}</a></li>{% endfor %}
+      </ul>
+      <ul class="hero-facts">
+        <li><b>{{ site.tools.size }}</b>free calculators</li>
+        <li><b>4</b>live public data sources</li>
+        <li><b>0</b>accounts needed</li>
+      </ul>
+    </div>
+    <div class="quick">
+      <h2>Quick check: your BMI</h2>
+      {% assign bmi = site.tools | where: "calc", "bmi" | first %}
+      <form id="quick-form" data-calc="bmi" data-result="#quick-result" novalidate>
+        <div class="calc-fields">{% for input in bmi.inputs %}{% include calc-input.html i=input %}{% endfor %}</div>
+        <p class="calc-error" role="alert" hidden></p>
+        <button class="btn btn-ink" type="submit">Calculate BMI</button>
+      </form>
+      <div class="calc-result" id="quick-result" aria-live="polite" hidden></div>
+      <p class="fine">Want the full picture? Open the <a href="{{ bmi.url | relative_url }}">BMI calculator</a> or check your <a href="{{ '/tools/waist-to-height-ratio/' | relative_url }}">waist-to-height ratio</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2>Calculators by what you're checking</h2><p>Every calculator shows its formula, how to read the result, its limits and the studies behind it.</p></div>
+      <a class="btn" href="{{ '/tools/' | relative_url }}">All {{ site.tools.size }} calculators</a>
+    </div>
+    <div class="dir">
+      {% for c in site.data.toolcats %}
+      <div>
+        <h3>{{ c.name }}</h3>
+        <ul>
+          {% assign ts = site.tools | where: "category", c.name | sort: "order" %}{% for t in ts limit: 4 %}<li><a href="{{ t.url | relative_url }}"><b>{{ t.title }}</b><span>{{ t.description | truncate: 84 }}</span></a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><div><h2>Live from public health sources</h2><p>Pulled straight from the U.S. FDA and leading health newsrooms, refreshed automatically.</p></div></div>
+    <div class="cols">
+      <div>
+        <h3 class="feed-title"><span class="live-dot" aria-hidden="true"></span>Latest FDA drug recalls</h3>
+        <div data-live="recalls" data-kind="drug" data-limit="5"><p class="loading">Loading...</p></div>
+        <p><a href="{{ '/drugs/' | relative_url }}#recalls-section">All recalls, including food and devices</a></p>
+      </div>
+      <div>
+        <h3 class="feed-title"><span class="live-dot" aria-hidden="true"></span>Health and research news</h3>
+        <div data-live="news" data-limit="6"><p class="loading">Loading...</p></div>
+        <p><a href="{{ '/news/' | relative_url }}">More health news</a></p>
+      </div>
+      <div>
+        <h3 class="feed-title">Look something up</h3>
+        <form class="field" action="{{ '/drugs/' | relative_url }}" method="get"><label for="h-drug">A medicine's FDA label</label><div class="nl-row"><input id="h-drug" name="q" type="search" placeholder="metformin" required><button class="btn btn-ink" type="submit">Look up</button></div></form>
+        <form class="field" action="{{ '/conditions/' | relative_url }}" method="get"><label for="h-cond">A condition or ICD-10 code</label><div class="nl-row"><input id="h-cond" name="q" type="search" placeholder="asthma" required><button class="btn btn-ink" type="submit">Look up</button></div></form>
+        <form class="field" action="{{ '/trials/' | relative_url }}" method="get"><label for="h-trial">Recruiting clinical trials</label><div class="nl-row"><input id="h-trial" name="q" type="search" placeholder="type 2 diabetes" required><button class="btn btn-ink" type="submit">Find</button></div></form>
+        <form class="field" action="{{ '/research/' | relative_url }}" method="get"><label for="h-res">New studies on PubMed</label><div class="nl-row"><input id="h-res" name="q" type="search" placeholder="sleep and memory" required><button class="btn btn-ink" type="submit">Search</button></div></form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="band">
+      <div class="section-head"><div><h2>Get matched with the right help, free</h2><p>Tell us what you need in about a minute. We review every request and connect you with a suitable licensed provider, advisor or employer.</p></div><a class="btn btn-signal" href="{{ '/connect/' | relative_url }}">Start now</a></div>
+      <ul class="tiles" style="list-style:none;padding:0;margin:0">
+        {% for l in site.data.leads %}<li><a class="tile" href="{{ '/connect/' | relative_url }}?intent={{ l[0] }}" style="text-decoration:none;color:var(--ink)"><b>{{ l[1].label }}</b><span>{{ l[1].cta }}</span></a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cols">
+    <div>
+      <h2>Learn and test yourself</h2>
+      <p>A 10-question health quiz with explanations, medical terminology flashcards, a searchable lab values sheet and the abbreviations every student meets on day one.</p>
+      <ul class="link-list">
+        <li><a href="{{ '/learn/quiz/' | relative_url }}">Take the health quiz</a></li>
+        <li><a href="{{ '/learn/flashcards/' | relative_url }}">Study flashcards</a></li>
+        <li><a href="{{ '/learn/lab-values/' | relative_url }}">Normal lab values</a></li>
+        <li><a href="{{ '/learn/abbreviations/' | relative_url }}">Medical abbreviations</a></li>
+        <li><a href="{{ '/learn/visit-prep/' | relative_url }}">Doctor visit question builder</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Plain-language guides</h2>
+      <ul class="link-list">
+        {% assign gs = site.guides | sort: "order" %}{% for g in gs limit: 6 %}<li><a href="{{ g.url | relative_url }}">{{ g.title }}</a></li>{% endfor %}
+      </ul>
+      <p><a href="{{ '/guides/' | relative_url }}">All guides</a></p>
+    </div>
+    <div>
+      <h2>Win this month</h2>
+      <p>Score high on the monthly knowledge challenge and you could win a {{ site.contest.prize }}. Free to enter.</p>
+      <a class="btn btn-ink" href="{{ '/contests/' | relative_url }}">See the contest</a>
+      <h2 style="margin-top:28px">Watch</h2>
+      {% assign v = site.data.videos.topics[0].videos[0] %}
+      <button class="yt" type="button" data-yt="{{ v.id }}" aria-label="Play: {{ v.title }}" style="background-image:url(https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg)"></button>
+      <p class="fine">{{ v.title }}, {{ v.by }}. <a href="{{ '/videos/' | relative_url }}">Video library</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><div><h2>Keep Med.Zone free</h2><p>Med.Zone is independent. Ads, sponsors and readers like you pay for hosting, medical review, new tools and monthly prizes.</p></div></div>
+    <ul class="kpis">
+      <li><b>Donate</b><a href="{{ '/support/' | relative_url }}">Give once or monthly</a></li>
+      <li><b>Sponsor</b><a href="{{ '/advertise/' | relative_url }}">Put your brand on a calculator</a></li>
+      <li><b>Join us</b><a href="{{ '/careers/' | relative_url }}">Writers, reviewers, developers</a></li>
+      <li><b>Compete</b><a href="{{ '/contests/' | relative_url }}">Monthly contests and prizes</a></li>
+    </ul>
+  </div>
+</section>

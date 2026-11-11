@@ -1,0 +1,27 @@
+# Curated videos (verified IDs) and trusted channels.
+# A channel's "list" is its uploads playlist: the channel ID with UC replaced by UU.
+# The daily workflow reads these channels' public feeds to refresh assets/data/videos-latest.json.
+topics:
+  - name: Heart and circulation
+    videos:
+      - {id: "7XaftdE_h60", title: "Flow through the heart", by: "Khan Academy"}
+      - {id: "JtBtk00EiVM", title: "Hypertension (high blood pressure), animated", by: "Alila Medical Media"}
+  - name: Diabetes and metabolism
+    videos:
+      - {id: "nY7FiqvAyUc", title: "Diabetes mellitus", by: "Osmosis from Elsevier"}
+      - {id: "UznxKiHrNx4", title: "Blood glucose regulation and diabetes", by: "Zero to Finals"}
+  - name: First aid and CPR
+    videos:
+      - {id: "M4ACYp75mjU", title: "Hands-Only CPR instructional video", by: "American Heart Association"}
+      - {id: "LtdLaiA81ps", title: "Hands-Only CPR, international English", by: "American Heart Association"}
+      - {id: "QLyxKFSwX5M", title: "Hands-only CPR demonstration", by: "Michigan Medicine"}
+  - name: Nursing school
+    videos:
+      - {id: "-PaHC8fleO0", title: "Fluid and electrolyte imbalances: NCLEX review", by: "RegisteredNurseRN"}
+channels:
+  - {name: "World Health Organization", list: "UU07-dOwgza1IguKA86jqxNA", about: "Global health news, outbreak updates and explainers."}
+  - {name: "Mayo Clinic", list: "UU8fQzKHIhSoZeSq3bwQx4mw", about: "Conditions, treatments and patient stories from Mayo Clinic experts."}
+  - {name: "Cleveland Clinic", list: "UUxyiSz4m161Z6frOsFxJpgw", about: "Short answers to everyday health questions."}
+  - {name: "Osmosis from Elsevier", list: "UUNI0qOojpkhsUtaQ4_2NUhQ", about: "Illustrated lessons for medical and nursing students."}
+  - {name: "RegisteredNurseRN", list: "UUPyMN8DzkFl2__xnTEiGZ1w", about: "NCLEX reviews, nursing skills and care plans."}
+  - {name: "Khan Academy NCLEX-RN", list: "UUDx5cTeADCvKWgF9x_Qjz3g", about: "Free physiology and nursing exam lessons."}

@@ -1,0 +1,31 @@
+---
+title: Free Medical Calculators
+crumb: Calculators
+description: All Med.Zone medical calculators in one place, from BMI and calories to eGFR, QTc, GCS and IV drip rates. Each shows its formula, sources and limits.
+lede: Pick a calculator below or press Ctrl+K to search. Every tool explains its formula, how to read the result and when not to rely on it.
+search: Page
+---
+<div class="dir">
+  {% for c in site.data.toolcats %}
+  <div>
+    <h3>{{ c.name }}</h3>
+    <p class="fine">{{ c.blurb }}</p>
+    <ul>
+      {% assign ts = site.tools | where: "category", c.name | sort: "order" %}{% for t in ts %}<li><a href="{{ t.url | relative_url }}"><b>{{ t.title }}</b><span>{{ t.description | truncate: 96 }}</span></a></li>{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:48px">
+  <section class="prose faq">
+    <h2>Questions about our calculators</h2>
+    <details><summary>How accurate are these calculators?</summary><p>Each one uses a published, peer-reviewed formula and is tested against worked examples from its source. The math is exact; the formulas themselves are estimates for populations, so your real value can differ. That is why every page lists the limits of the method.</p></details>
+    <details><summary>Do you store what I type?</summary><p>No. Calculations run in your browser and nothing you enter is sent to us. If you copy a "link with my inputs", the values are stored only in that link.</p></details>
+    <details><summary>Can I use them at work or in class?</summary><p>Yes. Clinicians and students use them for quick double-checks and teaching. They do not replace clinical judgement, local protocols or a pharmacist's review.</p></details>
+    <details><summary>Can I request a calculator?</summary><p>Yes. <a href="{{ '/contact/' | relative_url }}?topic=Feature%20request">Tell us which formula you need</a> and where it is published. Sponsors can also <a href="{{ '/advertise/' | relative_url }}">fund a new calculator</a>.</p></details>
+  </section>
+  <div>{% include lead-cta.html kind="trials" %}</div>
+</div>

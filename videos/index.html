@@ -1,0 +1,45 @@
+---
+title: Health and Medical Video Library
+crumb: Videos
+description: Watch hand-picked medical and health videos on the heart, diabetes, CPR and nursing, plus always-current channels from WHO, Mayo Clinic, Cleveland Clinic and Osmosis.
+lede: Short, accurate explainers from trusted educators. Players load only when you press play, so the page stays fast and private.
+search: Page
+scripts: [live.js]
+---
+{% for topic in site.data.videos.topics %}
+<section class="section" style="padding:32px 0">
+  <h2>{{ topic.name }}</h2>
+  <div class="vgrid">
+    {% for v in topic.videos %}
+    <div class="video-card">
+      <button class="yt" type="button" data-yt="{{ v.id }}" aria-label="Play: {{ v.title }}" style="background-image:url(https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg)"></button>
+      <h3>{{ v.title }}</h3>
+      <p>{{ v.by }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<section class="section" style="padding:32px 0" data-hide-empty>
+  <h2>New this week</h2>
+  <p class="fine">The newest uploads from the channels below, refreshed automatically every day.</p>
+  <div class="vgrid" data-live="videos" data-limit="9"></div>
+</section>
+
+{% include ad.html slot="in_content" %}
+
+<section class="section" style="padding:32px 0;border:0">
+  <h2>Channels we trust</h2>
+  <p>Each player shows that channel's latest uploads, so it is always current.</p>
+  <div class="vgrid">
+    {% for c in site.data.videos.channels %}
+    <div class="video-card">
+      <button class="yt channel" type="button" data-yt-list="{{ c.list }}" aria-label="Play the latest videos from {{ c.name }}">{{ c.name }}</button>
+      <h3>{{ c.name }}</h3>
+      <p>{{ c.about }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="fine" style="margin-top:24px">Videos are embedded from YouTube in privacy-enhanced mode and remain the property of their creators. Med.Zone is not affiliated with these channels. Want your educational channel featured? <a href="{{ '/contact/' | relative_url }}?topic=Partnership">Contact us</a>.</p>
+</section>

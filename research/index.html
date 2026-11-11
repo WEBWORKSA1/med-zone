@@ -1,0 +1,44 @@
+---
+title: Latest Medical Research from PubMed
+crumb: Research
+description: Search the newest peer-reviewed studies on PubMed by topic, and filter for reviews, clinical trials or free full text.
+lede: See the newest studies on any health topic, straight from PubMed's 37 million+ citations. Filter for reviews or clinical trials to find stronger evidence faster.
+scripts: [live.js]
+search: Tool
+---
+<form class="searchbar" id="research-form" role="search">
+  <label class="sr-only" for="r-q">Topic</label>
+  <input id="r-q" name="q" type="search" placeholder="Topic, for example intermittent fasting" required>
+  <label class="sr-only" for="r-filter">Study type</label>
+  <select id="r-filter" name="filter">
+    <option value="">All study types</option>
+    <option value="review[pt]">Reviews</option>
+    <option value="systematic review[pt]">Systematic reviews</option>
+    <option value="randomized controlled trial[pt]">Randomized controlled trials</option>
+    <option value="free full text[sb]">Free full text</option>
+  </select>
+  <button class="btn btn-ink" type="submit">Search PubMed</button>
+</form>
+<ul class="chips" aria-label="Trending topics">
+  {% assign common = "GLP-1 receptor agonist,long COVID,gut microbiome,sleep and dementia,blood pressure,intermittent fasting,vitamin D,exercise and depression" | split: "," %}{% for c in common %}<li><button class="btn btn-sm" type="button" data-fill="{{ c }}" data-target="#research-form">{{ c }}</button></li>{% endfor %}
+</ul>
+<div id="research-results" aria-live="polite"></div>
+
+{% include ad.html slot="in_content" %}
+
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose">
+    <h2>Weighing the evidence</h2>
+    <p>Not every study carries the same weight. From strongest to weakest, roughly:</p>
+    <ol>
+      <li><strong>Systematic reviews and meta-analyses</strong> pool many studies on one question.</li>
+      <li><strong>Randomized controlled trials</strong> assign treatments by chance, which limits bias.</li>
+      <li><strong>Cohort and case-control studies</strong> follow or compare groups and can show links, not proof of cause.</li>
+      <li><strong>Case reports, lab and animal studies</strong> generate ideas that still need testing in people.</li>
+    </ol>
+    <p>When you read a headline, check the study type, how many people took part, and whether the result was an absolute or a relative change. Our guide on <a href="{{ '/guides/how-to-spot-reliable-health-information/' | relative_url }}">spotting reliable health information</a> walks through it.</p>
+  </section>
+  <div>{% include lead-cta.html kind="trials" %}
+    <p class="fine" style="margin-top:16px">Citations from PubMed via NCBI E-utilities, U.S. National Library of Medicine. Inclusion in PubMed does not imply endorsement.</p>
+  </div>
+</div>
