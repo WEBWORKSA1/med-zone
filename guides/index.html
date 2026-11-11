@@ -1,0 +1,21 @@
+---
+title: Health Guides
+crumb: Guides
+description: Plain-language, sourced health guides on blood tests, blood pressure, kidney function, blood sugar, medication safety, clinical trials and more.
+lede: Clear explanations of the numbers and decisions that come up most in everyday health, each with sources and the calculators that go with it.
+search: Page
+---
+<div class="results" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+  {% assign gs = site.guides | sort: "order" %}{% for g in gs %}
+  <article class="result">
+    <p class="kicker" style="margin-top:0">{{ g.topic }}</p>
+    <h3><a href="{{ g.url | relative_url }}">{{ g.title }}</a></h3>
+    <p>{{ g.description }}</p>
+  </article>
+  {% endfor %}
+</div>
+{% include ad.html slot="in_content" %}
+<div class="cols cols-2" style="margin-top:40px">
+  <section class="prose"><h2>Want a guide on something else?</h2><p><a href="{{ '/contact/' | relative_url }}?topic=Feature%20request">Suggest a topic</a>. Qualified writers and clinicians can also <a href="{{ '/careers/' | relative_url }}">write for us</a>.</p></section>
+  <div>{% include newsletter.html source="guides" %}</div>
+</div>

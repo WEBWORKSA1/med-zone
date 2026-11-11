@@ -1,0 +1,21 @@
+---
+title: Thank You
+crumb: Thank you
+description: Thanks for contacting Med.Zone.
+noindex: true
+sitemap: false
+body_class: no-slidein
+---
+<div class="band" style="margin-top:24px">
+  <h2 id="thanks-title">Thanks, we've received it.</h2>
+  <p id="thanks-text">We usually reply within one to two business days.</p>
+  <a class="btn btn-signal" href="{{ '/tools/' | relative_url }}">Explore the calculators</a>
+</div>
+<div class="cols" style="margin-top:40px">
+  <div><h2>While you wait</h2><ul class="link-list"><li><a href="{{ '/learn/quiz/' | relative_url }}">Take the health quiz</a></li><li><a href="{{ '/guides/' | relative_url }}">Read a guide</a></li><li><a href="{{ '/news/' | relative_url }}">Today's health news</a></li></ul></div>
+  <div><h2>Tell a friend</h2><p>Know someone who'd find Med.Zone useful?</p><button class="btn" type="button" data-share>Share Med.Zone</button></div>
+  <div>{% include newsletter.html compact=true source="thanks" %}</div>
+</div>
+<script>
+(function(){var t=new URLSearchParams(location.search).get('type');var m={lead:['Request received. We are on it.','A coordinator will review your request and reach out by your preferred method, usually within one business day. Keep an eye on your inbox, including the spam folder.'],donation:['Thank you for supporting Med.Zone.','We will email you a secure payment link within one business day. Nothing is charged until you complete it.'],contest:['Your entry is in. Good luck!','We draw the winner after the period closes and contact them by email. Play another round to sharpen your score next month.'],careers:['Application received.','We reply to every applicant within two weeks.'],advertise:['Thanks for your interest in partnering with us.','We will send the media kit and available placements shortly.'],contact:['Message sent.','We usually reply within two business days.']}[t];if(m){document.getElementById('thanks-title').textContent=m[0];document.getElementById('thanks-text').textContent=m[1];}})();
+</script>

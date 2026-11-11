@@ -1,0 +1,34 @@
+---
+title: Contact Med.Zone
+crumb: Contact
+description: Contact Med.Zone with questions, corrections, feature requests, sponsorship, advertising, partnership or website and domain enquiries.
+search: Page
+body_class: no-slidein
+---
+<div class="lead-wrap">
+  <form class="lead-form" data-mz-form data-prefill data-subject="Med.Zone CONTACT" data-next="/thanks/?type=contact">
+    <h2>Send us a message</h2>
+    <div class="form-grid">
+      <div class="field full"><label for="ct-topic">Topic</label><select id="ct-topic" name="topic" required><option value="">Choose a topic</option><option>General question</option><option>Correction</option><option>Feature request</option><option>Sponsorship</option><option>Advertising</option><option>Partnership</option><option>Website or domain purchase</option><option>Contest</option><option>Press</option><option>Privacy request</option></select></div>
+      <div class="field"><label for="ct-name">Name</label><input id="ct-name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="ct-email">Email</label><input id="ct-email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field full"><label for="ct-org">Organization <em>(optional)</em></label><input id="ct-org" name="organization" type="text" autocomplete="organization"></div>
+      <div class="field full"><label for="ct-msg">Message</label><textarea id="ct-msg" name="message" required></textarea></div>
+    </div>
+    <input type="hidden" name="form" value="Contact">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn-signal" type="submit">Send message</button>
+    <p class="form-status" role="status" hidden></p>
+  </form>
+  <aside>
+    <div class="notice"><strong>We can't give personal medical advice.</strong> For symptoms or concerns about your health, contact your clinician. In an emergency, call your local emergency number.</div>
+    <h2 style="margin-top:24px">Other ways to reach us</h2>
+    <ul class="link-list">
+      <li><a href="#" data-mailto="Med.Zone enquiry">Email us</a></li>
+      <li><a href="{{ site.interest_url }}" target="_blank" rel="noopener">Interested in this website, domain, sponsorship, advertising or partnership</a></li>
+      <li><a href="{{ '/advertise/' | relative_url }}">Advertising options and media kit</a></li>
+      <li><a href="{{ '/careers/' | relative_url }}">Work with us</a></li>
+    </ul>
+    <p class="fine">We usually reply within two business days.</p>
+  </aside>
+</div>
