@@ -7,7 +7,7 @@ layout: default
     <p class="kicker">{{ page.topic }}</p>
     <h1>{{ page.title }}</h1>
     <p class="lede">{{ page.description }}</p>
-    <p class="byline">Written by the Med.Zone editorial team. Updated {{ page.updated | date: "%B %-d, %Y" }}. {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read.</p>
+    <p class="byline">Written by the Med.Zone editorial team. Updated {{ page.updated | date: "%B %-d, %Y" }}. {{ content | number_of_words | divided_by: 220 | floor | plus: 1 }} min read.</p>
     {{ content }}
     {% include ad.html slot="in_content" %}
     {% if page.refs %}

@@ -11,6 +11,7 @@
 </main>
 {% include footer.html %}
 <script src="{{ '/assets/js/core.js' | relative_url }}" defer></script>
-{% for s in page.scripts %}<script src="{{ '/assets/js/' | append: s | relative_url }}" defer></script>
+{% if page.calc %}<script src="{{ '/assets/js/calc.js' | relative_url }}" defer></script>
+{% endif %}{% for s in page.scripts %}<script src="{{ '/assets/js/' | append: s | relative_url }}" defer></script>
 {% endfor %}</body>
 </html>

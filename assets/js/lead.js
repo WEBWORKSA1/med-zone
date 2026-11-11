@@ -18,14 +18,15 @@
       $$('.tile', f).forEach(function (t) { t.classList.toggle('on', !!t.querySelector('input:checked')); });
       f.elements.intent_label.value = r ? r.getAttribute('data-label') : '';
     }
-    function show(n) {
+    function show(n, quiet) {
       step = n;
       panels.forEach(function (p) { p.hidden = +p.getAttribute('data-step') !== n; });
       dots.forEach(function (d, i) { d.classList.toggle('done', i < n); });
       back.hidden = n === 1; next.hidden = n === last; submit.hidden = n !== last;
       label.textContent = 'Step ' + n + ' of ' + last;
+      if (quiet) return;
       var h = panels[n - 1].querySelector('h2'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-      f.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (f.getBoundingClientRect().top < 0) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     function valid(n) {
       var p = panels[n - 1];
@@ -44,8 +45,7 @@
       return valid(last);
     };
     applyIntent();
-    if (intent()) show(2); else show(1);
-    window.scrollTo(0, 0);
+    show(intent() ? 2 : 1, true);
   }
   if (document.readyState !== 'loading') init(); else document.addEventListener('DOMContentLoaded', init);
 })();
