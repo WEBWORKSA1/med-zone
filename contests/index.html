@@ -1,0 +1,48 @@
+---
+title: Contests and Prizes
+crumb: Contests
+description: Enter the free Med.Zone Monthly Knowledge Challenge for a chance to win a gift card, and see upcoming creator and student contests.
+lede: Free to enter, open to curious minds. Test your health knowledge, submit your score and you could win.
+search: Page
+featured: true
+body_class: no-slidein
+---
+<div class="band">
+  <h2>{{ site.contest.name }}</h2>
+  <p>Period: {{ site.contest.period }}. Entries close {{ site.contest.closes }}. Prize: {{ site.contest.prize }}.</p>
+  <ol class="flow" style="color:var(--paper)">
+    <li>Play a round of the <a href="{{ '/learn/quiz/' | relative_url }}">health knowledge quiz</a>.</li>
+    <li>Choose "Enter this month's contest" on the score screen, or fill in the form below.</li>
+    <li>The winner is drawn from entries with the highest score and announced on this page.</li>
+  </ol>
+  <a class="btn btn-signal" href="{{ '/learn/quiz/' | relative_url }}">Play the quiz</a>
+</div>
+
+<div class="lead-wrap" id="enter" style="margin-top:40px">
+  <form class="lead-form" data-mz-form data-prefill data-subject="Med.Zone CONTEST ENTRY" data-next="/thanks/?type=contest">
+    <h2>Enter the challenge</h2>
+    <div class="form-grid">
+      <div class="field"><label for="c-score">Your quiz score</label><input id="c-score" name="score" type="number" min="0" max="10" required></div>
+      <div class="field"><label for="c-of">Out of</label><input id="c-of" name="of" type="number" value="10" min="1" max="10" required></div>
+      <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field full"><label for="c-country">Country and province or state</label><input id="c-country" name="location" type="text" required></div>
+      <label class="consent-line full"><input type="checkbox" name="age_confirmed" value="Yes" required><span>I am 18 or older (or the age of majority where I live).</span></label>
+      <label class="consent-line full"><input type="checkbox" name="rules_accepted" value="Yes" required><span>I have read and accept the <a href="{{ '/contests/rules/' | relative_url }}">official rules</a>.</span></label>
+      <label class="consent-line full"><input type="checkbox" name="newsletter" value="Yes"><span>Send me the weekly Med.Zone email and future contest news.</span></label>
+    </div>
+    <input type="hidden" name="contest" value="{{ site.contest.name }}, {{ site.contest.period }}">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn-signal" type="submit">Submit my entry</button>
+    <p class="fine">One entry per person per month. No purchase necessary.</p>
+    <p class="form-status" role="status" hidden></p>
+  </form>
+  <aside>
+    <h2>Coming next</h2>
+    <div class="side-block"><h3>Health Explainer Creator Contest</h3><p>Make a 60-second video or one-page infographic that explains a health number (BMI, A1C, blood pressure) clearly and accurately. The best entries get featured on Med.Zone and win cash prizes.</p></div>
+    <div class="side-block" style="margin-top:12px"><h3>Student Case Challenge</h3><p>Nursing and medical students solve a monthly clinical case. Top answers win study resources and a feature on our Learn page.</p></div>
+    <div class="lead-cta" style="margin-top:12px"><h2 class="side-title">Sponsor a prize</h2><p>Put your brand in front of engaged learners and health-conscious readers.</p><a class="btn btn-signal" href="{{ '/connect/' | relative_url }}?intent=brand">Sponsor a contest</a></div>
+    <h2 style="margin-top:24px">Past winners</h2>
+    {% if site.data.winners and site.data.winners.size > 0 %}<ul>{% for w in site.data.winners %}<li>{{ w }}</li>{% endfor %}</ul>{% else %}<p class="fine">Our first winner will be announced after {{ site.contest.closes }}.</p>{% endif %}
+  </aside>
+</div>

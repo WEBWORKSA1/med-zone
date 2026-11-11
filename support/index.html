@@ -1,0 +1,75 @@
+---
+title: Support Med.Zone
+crumb: Support us
+description: Help keep Med.Zone's medical calculators and health tools free and independent with a one-time or monthly donation, sponsorship or a pledge.
+lede: Med.Zone is independent and free for everyone. Your support pays for hosting, medical review, new tools, promotion, hiring and the prizes in our monthly contests.
+search: Page
+---
+<section>
+  <h2>Choose how you'd like to give</h2>
+  <div class="tiers">
+    <div class="tier"><b>Supporter</b><p class="price">$5<small>/month</small></p><ul><li>Name on the supporters wall</li><li>Monthly behind-the-scenes email</li></ul><a class="btn" href="#pledge" data-tier="Supporter, $5/month">Choose Supporter</a></div>
+    <div class="tier feature"><b>Sustainer</b><p class="price">$25<small>/month</small></p><ul><li>Everything in Supporter</li><li>Vote on the next calculators we build</li><li>Early access to new tools</li></ul><a class="btn btn-ink" href="#pledge" data-tier="Sustainer, $25/month">Choose Sustainer</a></div>
+    <div class="tier"><b>Champion</b><p class="price">$100<small>/month</small></p><ul><li>Everything in Sustainer</li><li>Fund a monthly contest prize</li><li>Thank-you on the contest page</li></ul><a class="btn" href="#pledge" data-tier="Champion, $100/month">Choose Champion</a></div>
+    <div class="tier"><b>Calculator patron</b><p class="price">$250<small>/month</small></p><ul><li>"Supported by" credit on a calculator of your choice</li><li>Quarterly usage report</li></ul><a class="btn" href="#pledge" data-tier="Calculator patron, $250/month">Choose Patron</a></div>
+  </div>
+  {% assign dl = site.donate_links %}
+  {% if dl.paypal != "" or dl.stripe != "" or dl.buymeacoffee != "" or dl.kofi != "" or dl.github_sponsors != "" %}
+  <div class="r-actions" style="margin-top:24px">
+    {% if dl.stripe != "" %}<a class="btn btn-signal" href="{{ dl.stripe }}" target="_blank" rel="noopener">Donate by card</a>{% endif %}
+    {% if dl.paypal != "" %}<a class="btn btn-ink" href="{{ dl.paypal }}" target="_blank" rel="noopener">Donate with PayPal</a>{% endif %}
+    {% if dl.buymeacoffee != "" %}<a class="btn" href="{{ dl.buymeacoffee }}" target="_blank" rel="noopener">Buy us a coffee</a>{% endif %}
+    {% if dl.kofi != "" %}<a class="btn" href="{{ dl.kofi }}" target="_blank" rel="noopener">Support on Ko-fi</a>{% endif %}
+    {% if dl.github_sponsors != "" %}<a class="btn" href="{{ dl.github_sponsors }}" target="_blank" rel="noopener">GitHub Sponsors</a>{% endif %}
+  </div>
+  {% endif %}
+</section>
+
+<section class="section" style="border:0">
+  <h2>Where your money goes</h2>
+  <p>Our target split for every dollar of reader support:</p>
+  <div class="alloc" role="img" aria-label="Medical review and content 35%, development and hosting 20%, promotion and marketing 20%, contests and prizes 15%, hiring and community 10%">
+    <i style="width:35%;background:#14213D">35%</i><i style="width:20%;background:#2A57A3">20%</i><i style="width:20%;background:#D7263D">20%</i><i style="width:15%;background:#17703F">15%</i><i style="width:10%;background:#8A5300">10%</i>
+  </div>
+  <ul class="alloc-legend">
+    <li><i style="background:#14213D"></i>Medical review and new content</li>
+    <li><i style="background:#2A57A3"></i>Development and hosting</li>
+    <li><i style="background:#D7263D"></i>Promotion and marketing</li>
+    <li><i style="background:#17703F"></i>Contests and prizes</li>
+    <li><i style="background:#8A5300"></i>Hiring and community</li>
+  </ul>
+</section>
+
+<div class="lead-wrap" id="pledge">
+  <form class="lead-form" data-mz-form data-prefill data-subject="Med.Zone DONATION PLEDGE" data-next="/thanks/?type=donation">
+    <h2>Make a pledge</h2>
+    <p>Tell us what you'd like to give. We'll email you a secure payment link (card, PayPal or bank transfer) within one business day. Nothing is charged until you complete that link.</p>
+    <div class="form-grid">
+      <div class="field"><label for="d-amt">Amount (USD)</label><select id="d-amt" name="amount" required><option value="">Choose an amount</option><option>$5</option><option>$10</option><option>$25</option><option>$50</option><option>$100</option><option>$250</option><option>$500</option><option>Other (tell us below)</option></select></div>
+      <div class="field"><label for="d-freq">Frequency</label><select id="d-freq" name="frequency"><option>Monthly</option><option>One time</option><option>Yearly</option></select></div>
+      <div class="field full"><label for="d-tier">Tier <em>(optional)</em></label><input id="d-tier" name="tier" type="text" placeholder="For example Sustainer"></div>
+      <div class="field"><label for="d-name">Name</label><input id="d-name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="d-email">Email</label><input id="d-email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field full"><label for="d-msg">Message or dedication <em>(optional)</em></label><textarea id="d-msg" name="message"></textarea></div>
+      <label class="consent-line full"><input type="checkbox" name="public_credit" value="Yes"><span>Thank me by name on the supporters wall.</span></label>
+    </div>
+    <input type="hidden" name="form" value="Donation pledge">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn-signal" type="submit">Send my pledge</button>
+    <p class="form-status" role="status" hidden></p>
+  </form>
+  <aside>
+    <h2>Other ways to help</h2>
+    <ul class="link-list">
+      <li><a href="{{ '/advertise/' | relative_url }}">Sponsor a calculator or section</a></li>
+      <li><a href="{{ '/contests/' | relative_url }}">Fund a contest prize</a></li>
+      <li><a href="{{ '/careers/' | relative_url }}">Volunteer or work with us</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}?topic=Correction">Report an error</a></li>
+      <li><button class="link-btn" type="button" data-share>Share Med.Zone with a friend</button></li>
+    </ul>
+    <h2 style="margin-top:24px">Supporters wall</h2>
+    {% if site.data.supporters and site.data.supporters.size > 0 %}<ul>{% for s in site.data.supporters %}<li>{{ s }}</li>{% endfor %}</ul>{% else %}<p class="fine">Be the first name here.</p>{% endif %}
+    <p class="fine">Donations to Med.Zone support an independent website and are not tax-deductible charitable gifts.</p>
+  </aside>
+</div>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-tier]');if(!a)return;var t=document.getElementById('d-tier');if(t)t.value=a.getAttribute('data-tier');});</script>

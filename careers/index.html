@@ -1,0 +1,48 @@
+---
+title: Work With Med.Zone
+crumb: Careers
+description: Join Med.Zone as a medical reviewer, health writer, video creator, developer, partnerships lead or student ambassador. Remote, flexible work.
+lede: We're a small, remote team building free health tools used by patients, students and clinicians. We're hiring flexible, mostly remote talent.
+search: Page
+---
+<div class="results">
+  {% for r in site.data.roles %}
+  <article class="result">
+    <h3>{{ r.title }}</h3>
+    <p class="meta"><span class="pill info">{{ r.type }}</span>{{ r.where }}</p>
+    <p>{{ r.about }}</p>
+    <a class="btn btn-sm" href="#apply" data-role="{{ r.title }}">Apply for this role</a>
+  </article>
+  {% endfor %}
+</div>
+
+<div class="lead-wrap" id="apply" style="margin-top:48px">
+  <form class="lead-form" data-mz-form data-prefill data-subject="Med.Zone JOB APPLICATION" data-next="/thanks/?type=careers">
+    <h2>Apply</h2>
+    <div class="form-grid">
+      <div class="field full"><label for="a-role">Role</label><select id="a-role" name="role" required><option value="">Choose a role</option>{% for r in site.data.roles %}<option>{{ r.title }}</option>{% endfor %}<option>Something else</option></select></div>
+      <div class="field"><label for="a-name">Name</label><input id="a-name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="a-loc">Location and time zone</label><input id="a-loc" name="location" type="text" required></div>
+      <div class="field"><label for="a-avail">Availability</label><select id="a-avail" name="availability"><option>A few hours a week</option><option>Part-time</option><option>Full-time</option><option>Project by project</option></select></div>
+      <div class="field full"><label for="a-link">Portfolio, LinkedIn or work samples</label><input id="a-link" name="portfolio" type="url" placeholder="https://" required></div>
+      <div class="field full"><label for="a-cred">Credentials and licences <em>(if relevant)</em></label><input id="a-cred" name="credentials" type="text" placeholder="For example RN, Ontario, 8 years"></div>
+      <div class="field full"><label for="a-msg">Why you, in a few sentences</label><textarea id="a-msg" name="message" required></textarea></div>
+    </div>
+    <input type="hidden" name="form" value="Careers">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn-signal" type="submit">Send application</button>
+    <p class="form-status" role="status" hidden></p>
+  </form>
+  <aside>
+    <h2>What to expect</h2>
+    <ul>
+      <li>We reply to every application within two weeks.</li>
+      <li>Most roles start with a small paid trial project.</li>
+      <li>Work remotely, on your own schedule.</li>
+    </ul>
+    <p>We welcome applicants of every background and do not discriminate on any basis protected by law.</p>
+    <div class="lead-cta" style="margin-top:16px"><h2 class="side-title">Looking for a clinical job instead?</h2><p>We connect nurses, caregivers and allied-health professionals with hiring facilities and agencies.</p><a class="btn btn-signal" href="{{ '/connect/' | relative_url }}?intent=careers">Find healthcare jobs</a></div>
+  </aside>
+</div>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-role]');if(!a)return;var s=document.getElementById('a-role');if(s)s.value=a.getAttribute('data-role');});</script>
